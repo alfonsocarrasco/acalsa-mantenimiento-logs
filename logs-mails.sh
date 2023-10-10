@@ -30,13 +30,13 @@ to_email="$TO_EMAIL"
 subject="Logs & Mails maintained $current_date"
 
 # 🍋 Create a directory for the date
-mkdir -p /home/x3c2p7q7ry12/mail/arch/${current_date}
+mkdir -p ${BASE_URL}/arch/${current_date}
 
 # 🍌 Compress all files in the folder
-tar -cf /home/x3c2p7q7ry12/mail/arch/${current_date}/${current_date}.tar.gz -P /home/x3c2p7q7ry12/mail/cur/*
+tar -cf ${BASE_URL}/arch/${current_date}/${current_date}.tar.gz -P ${BASE_URL}/cur/*
 
 echo '🦣 sleep 10 seconds to compress folder'
-ls -lah /home/x3c2p7q7ry12/mail/arch/${current_date}
+ls -lah ${BASE_URL}/arch/${current_date}
 sleep 10
 
 # 🍍 HTML content of the email with a basic template
@@ -89,7 +89,7 @@ cat <<EOF > "$json_file"
 EOF
 
 echo 'listando la data en base 64 '
-echo "$(cat "/home/x3c2p7q7ry12/mail/arch/${current_date}/${current_date}.tar.gz" | base64 -w 0)"
+echo "$(cat "${BASE_URL}/arch/${current_date}/${current_date}.tar.gz" | base64 -w 0)"
 echo "------------"
 
 echo '🐪 sleep 10 seconds to generate json content '
