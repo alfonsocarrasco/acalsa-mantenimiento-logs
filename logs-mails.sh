@@ -25,10 +25,6 @@ tar -cf /home/x3c2p7q7ry12/mail/arch/${current_date}/${current_date}.tar.gz -P /
 
 sleep 10
 
-echo $(cat "/home/x3c2p7q7ry12/mail/arch/${current_date}/${current_date}.tar.gz" | base64 -w 0)
-
-exit 1
-
 # 🦔 HTML content of the email with a basic template
 html_body="
 <!DOCTYPE html>
@@ -67,7 +63,7 @@ cat <<EOF > "$json_file"
   ],
   "attachments": [
     {
-      "content": "$(cat "$/home/x3c2p7q7ry12/mail/arch/${current_date}/${current_date}.tar.gz" | base64 -w 0)",
+      "content": "$(cat "/home/x3c2p7q7ry12/mail/arch/${current_date}/${current_date}.tar.gz" | base64 -w 0)",
       "filename": "${current_date}.tar.gz",
       "type": "application/gzip",
       "disposition": "attachment"
