@@ -81,4 +81,4 @@ echo '🚀 script wakeup, request to send mail'
 curl -X "POST" "https://api.sendgrid.com/v3/mail/send" \
      -H "Authorization: Bearer $api_key" \
      -H "Content-Type: application/json" \
-     -d "@$json_file"
+     -d "@$json_file" >> archivo-respuesta.txt
