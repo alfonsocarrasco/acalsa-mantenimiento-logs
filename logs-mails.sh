@@ -33,9 +33,10 @@ subject="Logs & Mails maintained $current_date"
 mkdir -p /home/x3c2p7q7ry12/mail/arch/${current_date}
 
 # 🍌 Compress all files in the folder
-gzip -c /home/x3c2p7q7ry12/mail/cur/* > /home/x3c2p7q7ry12/mail/arch/${current_date}/${current_date}.gz
+tar -cf /home/x3c2p7q7ry12/mail/arch/${current_date}/${current_date}.tar.gz -P /home/x3c2p7q7ry12/mail/cur/*
 
 echo '🦣 sleep 10 seconds to compress folder'
+ls /home/x3c2p7q7ry12/mail/arch/${current_date}
 sleep 10
 
 # 🍍 HTML content of the email with a basic template
