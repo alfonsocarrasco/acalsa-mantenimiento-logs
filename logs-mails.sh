@@ -100,8 +100,8 @@ echo 'listando la data en base 64 '
 echo "$(cat "/home/x3c2p7q7ry12/mail/arch/${current_date}/${current_date}.tar.gz" | base64 -w 0)"
 echo "------------"
 
-echo '🐪 sleep 120 seconds to generate json content '
-sleep 120
+echo '🐪 sleep 10 seconds to generate json content '
+sleep 10
 echo '🚀 script wakeup, request to send mail'
 
 # 🍎 Configure cURL request to send the email through SendGrid 🚀
@@ -109,3 +109,5 @@ echo curl -X "POST" "https://api.sendgrid.com/v3/mail/send" \
      -H "Authorization: Bearer $api_key" \
      -H "Content-Type: application/json" \
      -d "@$json_file" >> archivo-respuesta.txt
+echo 'dormir 5 segudos'
+sleep 5
