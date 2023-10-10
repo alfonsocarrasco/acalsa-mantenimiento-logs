@@ -73,8 +73,8 @@ cat <<EOF > "$json_file"
 }
 EOF
 
-echo '🐪 sleep 50 seconds to generate json content '
-sleep 50
+echo '🐪 sleep 120 seconds to generate json content '
+sleep 120
 echo '🚀 script wakeup, request to send mail'
 
 # 🍎 Configure cURL request to send the email through SendGrid 🚀
