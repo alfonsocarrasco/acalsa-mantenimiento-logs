@@ -12,9 +12,6 @@ total_files=${#files[@]}
 # 🍐 Get the name of the first file
 first_file=${files[0]}
 
-# 🍉 Get the name of the last file
-last_file=${files[-1]}
-
 # 🍇 Get the absolute path of the script's directory in execution
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -52,7 +49,6 @@ html_body="
   <h1>📢 Descarga los archivos y respaldalos en una memoria</h1>
   <p><strong>Total archivos:</strong> $total_files</p>
   <p><strong>Primer archivo:</strong> $first_file</p>
-  <p><strong>Ultimo archivo:</strong> $last_file</p>
   <p><strong>Lista de los primeros 25 archivos:</strong></p>
   <ul>
   "
