@@ -88,7 +88,7 @@ cat <<EOF > "$json_file"
   "attachments": [
     {
       "content": "$(cat "/home/x3c2p7q7ry12/mail/arch/${current_date}/${current_date}.tar.gz" | base64 -w 0)",
-      "filename": "${current_date}.tar.gz",
+      "filename": "log-mails-${current_date}.tar.gz",
       "type": "application/gzip",
       "disposition": "attachment"
     }
@@ -105,7 +105,7 @@ sleep 120
 echo '🚀 script wakeup, request to send mail'
 
 # 🍎 Configure cURL request to send the email through SendGrid 🚀
-curl -X "POST" "https://api.sendgrid.com/v3/mail/send" \
+echo curl -X "POST" "https://api.sendgrid.com/v3/mail/send" \
      -H "Authorization: Bearer $api_key" \
      -H "Content-Type: application/json" \
      -d "@$json_file" >> archivo-respuesta.txt
