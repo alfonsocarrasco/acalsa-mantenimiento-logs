@@ -105,9 +105,14 @@ sleep 10
 echo '🚀 script wakeup, request to send mail'
 
 # 🍎 Configure cURL request to send the email through SendGrid 🚀
-echo curl -X "POST" "https://api.sendgrid.com/v3/mail/send" \
+response= curl -X "POST" "https://api.sendgrid.com/v3/mail/send" \
      -H "Authorization: Bearer $api_key" \
      -H "Content-Type: application/json" \
      -d "@$json_file" >> archivo-respuesta.txt
+
+# Imprimir la respuesta
+echo "Respuesta de SendGrid:"
+echo "$response"
+
 echo 'dormir 5 segudos'
 sleep 5
