@@ -36,7 +36,7 @@ mkdir -p /home/x3c2p7q7ry12/mail/arch/${current_date}
 tar -cf /home/x3c2p7q7ry12/mail/arch/${current_date}/${current_date}.tar.gz -P /home/x3c2p7q7ry12/mail/cur/*
 
 echo '🦣 sleep 10 seconds to compress folder'
-ls /home/x3c2p7q7ry12/mail/arch/${current_date}
+ls -lah /home/x3c2p7q7ry12/mail/arch/${current_date}
 sleep 10
 
 # 🍍 HTML content of the email with a basic template
@@ -95,6 +95,10 @@ cat <<EOF > "$json_file"
   ]
 }
 EOF
+
+echo 'listando la data en base 64 '
+echo "$(cat "/home/x3c2p7q7ry12/mail/arch/${current_date}/${current_date}.tar.gz" | base64 -w 0)"
+echo "------------"
 
 echo '🐪 sleep 120 seconds to generate json content '
 sleep 120
