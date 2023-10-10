@@ -17,14 +17,11 @@ from_email="logs-mail_$current_date@$ENDPOINT"
 to_email="$TO_EMAIL"
 subject="Logs & Mails mantained $current_date"
 
-# Comprime los archivos por fecha
-for fecha in $(find /home/x3c2p7q7ry12/mail/cur -type f -mtime -1 -printf "%Y-%m-%d\n"); do
-  # Crea un directorio para la fecha
-  mkdir -p /home/x3c2p7q7ry12/mail/arch/${fecha}
+# Crea un directorio para la fecha
+mkdir -p /home/x3c2p7q7ry12/mail/arch/${current_date}
 
-  # Comprime los archivos de la fecha
-  tar -cf /home/x3c2p7q7ry12/mail/arch/${fecha}.tar.gz /home/x3c2p7q7ry12/mail/cur/${fecha}/*
-done
+# Comprime todos los archivos que tenga la carpeta
+tar -cf /home/x3c2p7q7ry12/mail/arch/${current_date}/${current_date}.tar.gz /home/x3c2p7q7ry12/mail/cur/*
 
 # 🦔 HTML content of the email with a basic template
 html_body="
@@ -64,8 +61,8 @@ cat <<EOF > "$json_file"
   ],
   "attachments": [
     {
-      "content": "$(cat "$/home/x3c2p7q7ry12/mail/arch/${fecha}.tar.gz" | base64 -w 0)",
-      "filename": "${fecha}.tar.gz",
+      "content": "$(cat "$/home/x3c2p7q7ry12/mail/arch/${current_date}/${current_date}.tar.gz" | base64 -w 0)",
+      "filename": "${current_date}.tar.gz",
       "type": "application/gzip",
       "disposition": "attachment"
     }
