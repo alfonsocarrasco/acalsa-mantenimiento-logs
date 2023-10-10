@@ -21,7 +21,9 @@ subject="Logs & Mails mantained $current_date"
 mkdir -p /home/x3c2p7q7ry12/mail/arch/${current_date}
 
 # Comprime todos los archivos que tenga la carpeta
-tar -cf /home/x3c2p7q7ry12/mail/arch/${current_date}/${current_date}.tar.gz /home/x3c2p7q7ry12/mail/cur/*
+tar -cf /home/x3c2p7q7ry12/mail/arch/${current_date}/${current_date}.tar.gz -P /home/x3c2p7q7ry12/mail/cur/*
+
+sleep 10
 
 # 🦔 HTML content of the email with a basic template
 html_body="
